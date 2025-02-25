@@ -115,14 +115,14 @@
             const xPercent = (x / width) * 100;
             const yPercent = (y / height) * 100;
 
-            const threshold = 20;
-
-            const xRotate = (Math.abs(xPercent - 50) < threshold ? (xPercent - 50) * 0.3 : 0);
-            const yRotate = (Math.abs(yPercent - 50) < threshold ? (yPercent - 50) * 0.3 : 0);
+            const xRotate = (xPercent - 50) * 0.1;  // Adjust rotation for better effect
+            const yRotate = (yPercent - 50) * 0.1;  // Adjust rotation for better effect
 
             image.style.transform = `rotateX(${yRotate}deg) rotateY(${xRotate}deg) scale(1.05)`;
 
-            image.style.boxShadow = `${(xPercent - 50) * 0.5}px ${(yPercent - 50) * 0.5}px 20px rgba(0, 0, 0, 0.3)`;
+            const shadowX = (xPercent - 50) * 0.5;
+            const shadowY = (yPercent - 50) * 0.5;
+            image.style.boxShadow = `${shadowX}px ${shadowY}px 20px rgba(0, 0, 0, 0.3)`;
         });
 
         image.addEventListener('mouseleave', () => {
