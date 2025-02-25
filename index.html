@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="KillByfron Homepage">
     <title>KillByfron</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <style>
         * {
             margin: 0;
@@ -115,8 +119,8 @@
             const xPercent = (x / width) * 100;
             const yPercent = (y / height) * 100;
 
-            const xRotate = (xPercent - 50) * 0.1;  // Adjust rotation for better effect
-            const yRotate = (yPercent - 50) * 0.1;  // Adjust rotation for better effect
+            const xRotate = (xPercent - 50) * 0.1;
+            const yRotate = (yPercent - 50) * 0.1;
 
             image.style.transform = `rotateX(${yRotate}deg) rotateY(${xRotate}deg) scale(1.05)`;
 
