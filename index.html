@@ -62,7 +62,6 @@
             border-radius: 10px;
         }
 
-        /* Style for description and button */
         .description {
             font-size: 1.2rem;
             margin-top: 20px;
@@ -114,25 +113,20 @@
             const { offsetWidth: width, offsetHeight: height } = image;
             const { offsetX: x, offsetY: y } = e;
 
-            // Get the percentage of where the mouse is within the image
             const xPercent = (x / width) * 100;
             const yPercent = (y / height) * 100;
 
-            // Define the threshold for the "corner zone" where the effect starts
-            const threshold = 20;  // Adjust this value to increase/decrease the active area for curving
+            const threshold = 20;
 
-            // Apply the effect only if the mouse is within a threshold range of the corners
-            const xRotate = (Math.abs(xPercent - 50) < threshold ? (xPercent - 50) * 0.3 : 0);  // Adjust the rotation strength
-            const yRotate = (Math.abs(yPercent - 50) < threshold ? (yPercent - 50) * 0.3 : 0);  // Adjust the rotation strength
 
-            // Apply a transform effect that gives the curving effect on any corner
+            const xRotate = (Math.abs(xPercent - 50) < threshold ? (xPercent - 50) * 0.3 : 0);
+            const yRotate = (Math.abs(yPercent - 50) < threshold ? (yPercent - 50) * 0.3 : 0);
+
             image.style.transform = `rotateX(${yRotate}deg) rotateY(${xRotate}deg) scale(1.05)`;
 
-            // Optional: Add a subtle shadow for more dynamic effect
             image.style.boxShadow = `${(xPercent - 50) * 0.5}px ${(yPercent - 50) * 0.5}px 20px rgba(0, 0, 0, 0.3)`;
         });
 
-        // Reset image transform when mouse leaves
         image.addEventListener('mouseleave', () => {
             image.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
             image.style.boxShadow = 'none';
