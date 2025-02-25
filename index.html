@@ -53,30 +53,13 @@
             color: #888;
         }
 
-        /* Image Hover Effect */
+        /* Image */
         .main-image {
             width: 80%;
             max-width: 600px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             position: relative;
-            transition: all 0.4s ease-in-out;
-        }
-
-        .main-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            opacity: 0;
-            transition: all 0.4s ease-in-out;
-        }
-
-        .main-image:hover::after {
-            opacity: 1;
-            transform: scale(1.1);
         }
 
         /* Style for description and button */
@@ -115,7 +98,7 @@
     </header>
 
     <main>
-        <img src="https://i.postimg.cc/Dy2N3XDW/Capture.png" alt="KillByfron Screenshot" class="main-image">
+        <img src="https://i.postimg.cc/Dy2N3XDW/Capture.png" alt="KillByfron Screenshot" class="main-image" id="mainImage">
         <p class="description">KillByfron is a powerful script executor for roblox. Download now to enhance your experience and streamline your scripting tasks!</p>
         <a href="https://discord.gg/3t7EfcW5NB" class="discord-button" target="_blank">Join Discord</a>
     </main>
@@ -123,5 +106,34 @@
     <footer>
         <p>&copy; 2025 KillByfron Project. All rights reserved. 🚀</p>
     </footer>
+
+    <script>
+        const image = document.getElementById('mainImage');
+
+        image.addEventListener('mousemove', (e) => {
+            const { offsetWidth: width, offsetHeight: height } = image;
+            const { offsetX: x, offsetY: y } = e;
+
+            // Get the percentage of where the mouse is within the image
+            const xPercent = (x / width) * 100;
+            const yPercent = (y / height) * 100;
+
+            // Set transform based on the mouse position (curving effect)
+            const xRotate = (xPercent - 50) * 0.2;  // Adjust how much the image curves horizontally
+            const yRotate = (yPercent - 50) * 0.2;  // Adjust how much the image curves vertically
+
+            // Apply a transform effect that gives the curving effect on any corner
+            image.style.transform = `rotateX(${yRotate}deg) rotateY(${xRotate}deg) scale(1.05)`;
+
+            // Optional: Add a subtle shadow for more dynamic effect
+            image.style.boxShadow = `${(xPercent - 50) * 0.5}px ${(yPercent - 50) * 0.5}px 20px rgba(0, 0, 0, 0.3)`;
+        });
+
+        // Reset image transform when mouse leaves
+        image.addEventListener('mouseleave', () => {
+            image.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+            image.style.boxShadow = 'none';
+        });
+    </script>
 </body>
 </html>
