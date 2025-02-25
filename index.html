@@ -118,9 +118,12 @@
             const xPercent = (x / width) * 100;
             const yPercent = (y / height) * 100;
 
-            // Set transform based on the mouse position (curving effect)
-            const xRotate = (xPercent - 50) * 0.2;  // Adjust how much the image curves horizontally
-            const yRotate = (yPercent - 50) * 0.2;  // Adjust how much the image curves vertically
+            // Define the threshold for the "corner zone" where the effect starts
+            const threshold = 20;  // Adjust this value to increase/decrease the active area for curving
+
+            // Apply the effect only if the mouse is within a threshold range of the corners
+            const xRotate = (Math.abs(xPercent - 50) < threshold ? (xPercent - 50) * 0.3 : 0);  // Adjust the rotation strength
+            const yRotate = (Math.abs(yPercent - 50) < threshold ? (yPercent - 50) * 0.3 : 0);  // Adjust the rotation strength
 
             // Apply a transform effect that gives the curving effect on any corner
             image.style.transform = `rotateX(${yRotate}deg) rotateY(${xRotate}deg) scale(1.05)`;
