@@ -1,1 +1,2 @@
-just the fucking site
+# KillByfron Website
+this is just the website
