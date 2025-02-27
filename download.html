@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download KillByfron - The ultimate solution for bypassing Byfron">
-    <title>Download KillByfron</title>
+    <meta name="description" content="KillByfron - Work in Progress Homepage">
+    <title>KillByfron - Work in Progress</title>
     <style>
         * {
             margin: 0;
@@ -27,57 +27,42 @@
             margin-bottom: 40px;
         }
         header h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             color: #ff5555;
         }
-        .download-button {
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .wip-banner {
             background-color: #ff5555;
             color: #fff;
-            padding: 15px 30px;
-            border: none;
+            padding: 10px 20px;
             border-radius: 5px;
+            margin-bottom: 30px;
             font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 30px;
-            text-decoration: none;
+            animation: blink 1.5s infinite;
         }
-        .download-button:hover {
-            background-color: #ff7777;
-        }
-        .preview-image {
-            margin-top: 30px;
-            max-width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-        footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #888;
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
     </style>
-    <script>
-        function showMessage() {
-            alert('Have fun!');
-        }
-    </script>
 </head>
 <body>
     <header>
-        <h1>Download KillByfron</h1>
-        <p>Get the latest version of KillByfron from our official GitHub releases.</p>
+        <h1>KillByfron</h1>
+        <p class="Download Button" href="https://github.com/Miguelqwe1701/KillByfron/releases/download/V5/KillByfron.zip" download onclick="showMessage()</p>
+            Download KillByfron
+        <!-- Your GIF -->
+        <img src="https://i.postimg.cc/65W0dbQq/7iyhpymce0v.gif" alt="Loading GIF" width="300" height="200">
     </header>
 
-    <main>
-        </a>
-        <a class="download-button" href="https://github.com/Miguelqwe1701/KillByfron/releases/download/V5/KillByfron.zip" download onclick="showMessage()">
-            Download KillByfron V5
-        <img src="https://i.postimg.cc/Dy2N3XDW/Capture.png" alt="KillByfron Screenshot" class="main-image" id="mainImage">
-    </main>
+    <!-- Background music -->
+    <audio autoplay loop>
+        <source src="https://files.catbox.moe/5a71rw.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-    <footer>
-        <p>2025 KillByfron Project. All rights reserved.</p>
-    </footer>
 </body>
 </html>
